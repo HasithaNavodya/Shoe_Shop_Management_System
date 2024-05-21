@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Shoes</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/all.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            background-color: #343a40;
+            padding: 0.5rem 0; /* Reduced padding */
+        }
+
+        header h1 img {
+            width: 50px; /* Reduced logo size */
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin-left: 1rem; /* Reduced margin */
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem; /* Reduced font size */
+            display: flex;
+            align-items: center;
+        }
+
+        header nav ul li a i {
+            margin-right: 0.5rem; /* Margin between icon and text */
+            font-size: 1rem; /* Reduced icon size */
+        }
+
+        header nav ul li a:hover {
+            color: #f8f9fa;
+        }
+
+        .admin-img {
+            width: 30px; /* Reduced admin image size */
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .searchHotel {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .searchHotel h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .searchHotel input {
+            width: 50%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+        }
+
+        .container .row {
+            margin-top: 2rem;
+        }
+
+        .container-col img {
+            width: 100%;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            padding: 2rem 0;
+        }
+
+        .footer h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul li a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        .footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links a {
+            color: #f8f9fa;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: #adb5bd;
+        }
+    </style>
+</head>
+<body>
+<header class="d-flex justify-content-between align-items-center px-4">
+    <h1><a href="#home"><img src="assets/images/H.png" alt="Hello Shoes"></a></h1>
+    <nav>
+        <ul class="d-flex align-items-center">
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#customer"><i class="fas fa-user"></i> Customer</a></li>
+            <li><a href="#employee"><i class="fas fa-users"></i> Employee</a></li>
+            <li><a href="#inventory"><i class="fas fa-box"></i> Inventory</a></li>
+            <li><a href="#order"><i class="fas fa-shopping-cart"></i> Order</a></li>
+            <li><a href="#supplier"><i class="fas fa-truck"></i> Supplier</a></li>
+        </ul>
+    </nav>
+    <img src="assets/images/icons8-menu-64.png" alt="Menu" class="admin-img">
+</header>
+
+<section id="home" class="container mt-5">
+    <div class="searchHotel text-center">
+        <h1>What are you looking for ...?</h1>
+        <input type="text" placeholder="Search ..." id="text">
+        <span class="hr mt-3"><hr></span>
+    </div>
+    <div class="row">
+        <div class="col-md-4 container-col">
+            <img src="assets/1.jpeg" alt="An image" class="img-fluid">
+        </div>
+        <!-- Add more columns for other images -->
+    </div>
+</section>
+
+<section id="customer" class="container mt-5">
+    <h1>Customer Section</h1>
+</section>
+
+<section id="employee" class="container mt-5">
+    <h1>Employee Section</h1>
+</section>
+
+<section id="inventory" class="container mt-5">
+    <h1>Inventory Section</h1>
+</section>
+
+<section id="order" class="container mt-5">
+    <h1>Order Section</h1>
+</section>
+
+<section id="supplier" class="container mt-5">
+    <h1>Supplier Section</h1>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-col">
+                <h4>Online Shop</h4>
+                <ul>
+                    <li><a href="#">Watch</a></li>
+                    <li><a href="#">Bag</a></li>
+                    <li><a href="#">Shoes</a></li>
+                    <li><a href="#">Dress</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
