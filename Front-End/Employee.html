@@ -37,7 +37,11 @@
     </style>
 </head>
 <body>
-<main class="container-fluid" id="employeeContent">
+<!-- Navbar -->
+
+<!-- End Navbar -->
+
+<main class="container-fluid mt-4" id="employeeContent">
     <div class="container-fluid">
         <div class="row mb-4">
             <div class="col-12">
@@ -46,40 +50,36 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="eId" class="col-sm-3 col-form-label">Code:</label>
-                                <input disabled type="text" class="form-control" id="eId" placeholder="">
+                                <label for="eId" class="form-label">Code:</label>
+                                <input disabled name="eId" type="text" class="form-control form-control-custom" id="eId">
                             </div>
                             <div class="mb-3">
-                                <label for="eName" class="col-sm-3 col-form-label">Name:</label>
-                                <input type="text" class="form-control" id="eName" placeholder="">
+                                <label for="eName" class="form-label">Name:</label>
+                                <input name="eName" type="text" class="form-control form-control-custom" id="eName">
                             </div>
                             <div class="mb-3">
-                                <label for="eGender" class="col-sm-3 col-form-label">Gender:</label>
-                                <select class="form-control" id="eGender">
-                                    <option selected>Choose...</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                <label for="eGender" class="form-label">Gender:</label>
+                                <select name="eGender" class="form-select form-control-custom" id="eGender">
+                                    <option value="" selected>Choose...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="edOb" class="col-sm-3 col-form-label">Date of Birth:</label>
-                                <input type="date" class="form-control" id="edOb">
+                                <label for="eDob" class="form-label">Date of Birth:</label>
+                                <input name="eDob" type="date" class="form-control form-control-custom" id="eDob">
                             </div>
                             <div class="mb-3">
-                                <label for="eStatus" class="col-sm-3 col-form-label">Civil Status:</label>
-                                <select class="form-control" id="eStatus">
-                                    <option selected>Choose...</option>
+                                <label for="eStatus" class="form-label">Status:</label>
+                                <select name="eStatus" class="form-select form-control-custom" id="eStatus">
+                                    <option value="" selected>Choose...</option>
                                     <option>Single</option>
                                     <option>Married</option>
-                                    <option>Divorced</option>
-                                    <option>Widowed</option>
-                                    <option>Separated</option>
-                                    <option>Remarried</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="eDesignation" class="col-sm-3 col-form-label">Designation:</label>
-                                <select class="form-control" id="eDesignation">
+                                <label for="eDesignation" class="form-label">Designation:</label>
+                                <select name="eDesignation" class="form-select form-control-custom" id="eDesignation">
                                     <option selected>Choose...</option>
                                     <option>Manager</option>
                                     <option>Supervisor</option>
@@ -87,28 +87,26 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="eJoinDate" class="col-sm-3 col-form-label">Date of Join:</label>
-                                <input type="date" class="form-control" id="eJoinDate">
+                                <label for="eJoinDate" class="form-label">Join Date:</label>
+                                <input name="eJoinDate" type="date" class="form-control form-control-custom" id="eJoinDate">
                             </div>
                             <div class="mb-3">
-                                <label for="eROle" class="col-sm-3 col-form-label">Access Role:</label>
-                                <select class="form-control" id="eROle">
+                                <label for="eROle" class="form-label">Access Role:</label>
+                                <select name="eROle" class="form-select form-control-custom" id="eROle">
                                     <option selected>Choose...</option>
                                     <option>Admin</option>
                                     <option>User</option>
                                 </select>
                             </div>
                         </div>
-                    <!-- Right Side Form -->
-                    <div class="col-md-6">
-
+                        <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="col-sm-3 col-form-label">File upload:</label>
-                                <input class="form-control" id="eImage" type="file" name="img[]">
+                                <label for="eImage" class="form-label">File upload:</label>
+                                <input name="img[]" type="file" class="form-control form-control-custom" id="eImage">
                             </div>
                             <div class="mb-3">
-                                <label for="eBranch" class="col-sm-3 col-form-label">Branch:</label>
-                                <select class="form-control" id="eBranch">
+                                <label for="eBranch" class="form-label">Branch:</label>
+                                <select name="eBranch" class="form-select form-control-custom" id="eBranch">
                                     <option selected>Choose...</option>
                                     <option>Galle</option>
                                     <option>Colombo</option>
@@ -116,82 +114,80 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="eEmail" class="col-sm-3 col-form-label">Email:</label>
-                                <input type="email" class="form-control" id="eEmail" placeholder="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="ePhone" class="col-sm-3 col-form-label">Mobile (phone):</label>
-                                <input type="text" class="form-control" id="ePhone" placeholder="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="eGuardian" class="col-sm-3 col-form-label">Guardian Name:</label>
-                                <input type="text" class="form-control" id="eGuardian" placeholder="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="eHomeNumber" class="col-sm-3 col-form-label">Guardian (mobile):</label>
-                                <input type="text" class="form-control" id="eHomeNumber" placeholder="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="eAddress" class="col-sm-3 col-form-label">Address:</label>
-                                <input type="text" class="form-control" id="eAddress" placeholder="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="eState" class="col-sm-3 col-form-label">City & State:</label>
-                                <input type="text" class="form-control" id="eState" placeholder="">
+                                <label for="eEmail" class="form-label">Email:</label>
+                                <input name="email" type="email" class="form-control form-control-custom" id="eEmail">
                             </div>
 
+                            <div class="mb-3">
+                                <label for="ePhone" class="form-label">Mobile (phone):</label>
+                                <input name="ePhone" type="text" class="form-control form-control-custom" id="ePhone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eGuardian" class="form-label">Guardian Name:</label>
+                                <input name="eGuardian" type="text" class="form-control form-control-custom" id="eGuardian">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eHomeNumber" class="form-label">Guardian (mobile):</label>
+                                <input name="eHomeNumber" type="text" class="form-control form-control-custom" id="eHomeNumber">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eAddress" class="form-label">Address:</label>
+                                <input name="eAddress" type="text" class="form-control form-control-custom" id="eAddress">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eState" class="form-label">City & State:</label>
+                                <input name="eState" type="text" class="form-control form-control-custom" id="eState">
+                            </div>
+
+
+                        </div>
                     </div>
-                </div>
-                <!-- Modal Footer -->
-                <div class="modal-footer">
-                    <button class="btn btn-success" id="eSaveBtn">Save</button>
-                    <button class="btn btn-danger" id="eDeleteBtn">Delete</button>
-                    <button class="btn btn-warning" id="eUpdateBtn">Update</button>
-                    <button class="btn btn-danger" id="eClearBtn">Clear All</button>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-success btn-custom" id="btnSaveCustomer">Save</button>
+                        <button class="btn btn-danger btn-custom" id="btnCusDelete">Delete</button>
+                        <button class="btn btn-warning btn-custom" id="btnUpdate">Update</button>
+                        <button class="btn btn-secondary btn-custom" id="btnCustomerClear">Clear All</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Search Bar -->
-    <div class="modal-footer mb-3">
-        <nav style="width: 250px;">
-            <div class="container-fluid">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-                    <button class="btn btn-outline-success" type="submit" id="SearchCustomer">Search</button>
-                </form>
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="employeeSearchInput">
+                        <button class="btn btn-outline-success" type="submit" id="SearchEmployee">Search</button>
+                    </form>
+                </nav>
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Status</th>
+                            <th>Designation</th>
+                            <th>Join Date</th>
+                            <th>Access Role</th>
+                            <th>File upload</th>
+                            <th>Branch</th>
+                            <th>Email</th>
+                            <th>Mobile (phone)</th>
+                            <th>Guardian Name</th>
+                            <th>Guardian (mobile)</th>
+                            <th>Address</th>
+                            <th>City & State</th>
+                        </tr>
+                        </thead>
+                        <tbody id="employeeTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </nav>
-    </div>
-    <!-- Table -->
-    <div class="modal-footer mb-3">
-        <table class="table table-bordered table-hover table-striped-columns">
-            <thead>
-            <tr class="table mt-5 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
-                <th>Code</th>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>DOB</th>
-                <th>Gender</th>
-                <th>Join Date</th>
-                <th>Role</th>
-                <th>Civil Status</th>
-                <th>Designation</th>
-                <th>Address</th>
-                <th>Contact</th>
-                <th>Branch</th>
-                <th>Guardian Name</th>
-                <th>Guardian Contact</th>
-                <th style="display: none">Address</th>
-                <th style="display: none">State</th>
-            </tr>
-            </thead>
-            <tbody id="employeeTbl">
-            <!-- Dynamic content will be inserted here -->
-            </tbody>
-        </table>
-    </div>
+        </div>
     </div>
 </main>
 </body>

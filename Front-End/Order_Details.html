@@ -3,110 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Order</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font-awsome/css/all.css">
+    <link rel="stylesheet" href="style/Order_Details.css">
 </head>
 <body>
-    <form id="OrderForm">
-        <fieldset>
-            <legend>Order</legend>
-            <!--Item Code-->
-            <label for="txtItemCode">Item Code : </label><br>
-            <input name="itemCode" id="txtItemCode" type="text">
-            <br>
-            <br>
+<main class="container-fluid" id="OrderDetailsContent">
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Order Details Information</h4>
+                    <form class="row gx-3 gy-2 align-items-center justify-content-center">
+                        <div class="col-sm-3">
+                            <label class="visually-hidden" for="cmbOrderSearch">Preference</label>
+                            <select class="form-select" id="cmbOrderSearch" style="background-color: white;color: black">
+                                <option value="OrderID">Order ID</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="visually-hidden" for="txtSearchOrder">Name</label>
+                            <input type="text" class="form-control" id="txtSearchOrder"  style="background-color: white;color: black">
+                        </div>
+                        <div class="col-auto">
+                            <button id="btnOrderSearch" type="button" class="btn btn-outline-info">Search</button>
+                        </div>
+                        <div class="col-auto">
+                            <button id="btnOrderClear" type="button" class="btn btn-outline-success">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <!--Order No-->
-            <label for="txtOrderNo">Order No : </label><br>
-            <input name="orderNo" id="txtOrderNo" type="text">
-            <br>
-            <br>
+    <!--Table-->
+    <div class="modal-footer mb-3" style="position: relative;">
+        <table class="table table-bordered table-hover table-striped-columns">
+            <thead>
+            <tr class="table mt-5 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <th class="bg-primary-subtle">Code</th>
+                <th class="bg-primary-subtle">Name</th>
+                <th class="bg-primary-subtle">Email</th>
+                <th class="bg-primary-subtle">Category</th>
+                <th class="bg-primary-subtle">Address</th>
+                <th class="bg-primary-subtle">Mobile No.</th>
+                <th class="bg-primary-subtle">LandLine No.</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-refund-orders" class="table-group-divider">
 
-            <!--Customer Name-->
-            <label for="cName">Customer Name : </label><br>
-            <input name="cName" id="cName" type="text">
-            <br>
-            <br>
+            </tbody>
+        </table>
+    </div>
 
-            <!--Item Desc-->
-            <label for="txtItemDesc">Item Desc : </label><br>
-            <input name="itemDesc" id="txtItemDesc" type="text">
-            <br>
-            <br>
-
-            <!--Size-->
-            <label for="txtSize">Size : </label><br>
-            <input name="size" id="txtSize" type="text">
-            <br>
-            <br>
-
-            <!--Unit Price-->
-            <label for="txtUnitPrice">Unit Price : </label><br>
-            <input name="unitPrice" id="txtUnitPrice" type="text">
-            <br>
-            <br>
-
-            <!--Item Qty-->
-            <label for="txtItemQty">Item Qty : </label><br>
-            <input name="itemQty" id="txtItemQty" type="text">
-            <br>
-            <br>
-
-            <!--Total Price-->
-            <label for="txtTotalPrice">Total Price : </label><br>
-            <input name="totalPrice" id="txtTotalPrice" type="text">
-            <br>
-            <br>
-
-            <!--Purchase Date-->
-            <label for="txtPurchaseDate">Purchase Date : </label><br>
-            <input name="purchaseDate" id="txtPurchaseDate" type="text">
-            <br>
-            <br>
-
-            <!--Payment Method-->
-            <label for="txtPaymentMethod">Payment Method : </label><br>
-            <input name="totalPrice" id="txtPaymentMethod" type="text">
-            <br>
-            <br>
-
-            <!--Added Points-->
-            <label for="txtAddedPoints">Added Points : </label><br>
-            <input name="addedPoints" id="txtAddedPoints" type="text">
-            <br>
-            <br>
-
-            <!--Cashier Name-->
-            <label for="txtCashierName">Cashier Name : </label><br>
-            <input name="cashierName" id="txtCashierName" type="text">
-            <br>
-            <br>
-
-            <!--Table Content-->
-            <table border="1" width="1800">
-
-                <thead>
-                <tr>
-                    <th>Item Code</th>
-                    <th>Order No</th>
-                    <th>Customer Name</th>
-                    <th>Item Desc</th>
-                    <th>Size</th>
-                    <th>Unit Price</th>
-                    <th>Item Qty</th>
-                    <th>Total Price</th>
-                    <th>Purchase Date</th>
-                    <th>Payment Method</th>
-                    <th>Added Points</th>
-                    <th>Cashier Name</th>
-                </tr>
-                </thead>
-            </table>
-
-            <button type="submit" formaction="save_customer">Save Customer</button>
-            <button type="submit" formaction="delete_customer">Delete</button>
-            <button type="submit" formaction="update_customer">Update</button>
-            <button type="submit" formaction="get_all_customer">Get All</button>
-            <button type="reset">Clear Data</button>
-        </fieldset>
-    </form>
+</main>
 </body>
 </html>

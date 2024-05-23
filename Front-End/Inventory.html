@@ -6,10 +6,132 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/font-awsome/css/all.css">
+    <link rel="stylesheet" href="style/Inventory.css">
+
 </head>
 <body>
-<main class="container-fluid" id="itemContent">
+<main class="container-fluid mt-4" id="itemContent">
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Item Information</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="itemId" class="form-label">Code:</label>
+                                <input disabled name="itemId" type="text" class="form-control form-control-custom" id="itemId">
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemName" class="form-label">Description:</label>
+                                <input name="itemName" type="text" class="form-control form-control-custom" id="itemName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemCategory" class="form-label">Category:</label>
+                                <input name="itemCategory" type="text" class="form-control form-control-custom" id="itemCategory">
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemUnitPriceSale" class="form-label">Sale Price:</label>
+                                <input name="itemUnitPriceSale" type="number" class="form-control form-control-custom" id="itemUnitPriceSale">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ItemUnitPriceBuy" class="form-label">Buy Price:</label>
+                                <input name="ItemUnitPriceBuy" type="number" class="form-control form-control-custom" id="ItemUnitPriceBuy">
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemProfit" class="form-label">Profit:</label>
+                                <input name="itemProfit" type="number" class="form-control form-control-custom" id="itemProfit">
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemProfitMargin" class="form-label">Profit Margin:</label>
+                                <input name="itemProfitMargin" type="number" class="form-control form-control-custom" id="itemProfitMargin">
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemStatus" class="form-label">Status:</label>
+                                <input name="itemStatus" type="text" class="form-control form-control-custom" id="itemStatus">
+                            </div>
+                            <div class="row mb-3 col-12">
+                                <label class="col-sm-3 col-form-label">Sizes :</label>
+                                <div class="row col-sm-9">
+                                    <div class="row">
+                                        <label for="itemSize6" class="form-label">Size-6:</label>
+                                        <input name="itemSize6" type="number" class="form-control form-control-custom" id="itemSize6">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label for="itemSize7" class="form-label">Size-7:</label>
+                                        <input name="itemSize7" type="number" class="form-control form-control-custom" id="itemSize7">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label for="itemSize8" class="form-label">Size-8:</label>
+                                        <input name="itemSize8" type="number" class="form-control form-control-custom" id="itemSize8">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label for="itemSize9" class="form-label">Size-9:</label>
+                                        <input name="itemSize9" type="number" class="form-control form-control-custom" id="itemSize9">
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="itemProfilePic" class="form-label">Item Picture:</label>
+                                <div class="row">
+                                    <div class="col-sm-9"> <!-- Adjusted width for input field -->
+                                        <input class="form-control" type="file" name="img[]" class="file-upload-default" id="itemProfilePic" style="background-color: white;color: black">
+                                    </div>
+                                    <div class="col-sm-3"> <!-- Adjusted width for image -->
+                                        <img src="assets/bac/Screenshot%202024-05-07%20211154.png" alt="Item Image" style="max-width: 75px; max-height: 75px;" id="showItemImage" s>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-success btn-custom" id="btnSaveCustomer">Save</button>
+                        <button class="btn btn-danger btn-custom" id="btnCusDelete">Delete</button>
+                        <button class="btn btn-warning btn-custom" id="btnUpdate">Update</button>
+                        <button class="btn btn-secondary btn-custom" id="btnCustomerClear">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="employeeSearchInput">
+                        <button class="btn btn-outline-success" type="submit" id="SearchEmployee">Search</button>
+                    </form>
+                </nav>
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Sale Price</th>
+                            <th>Buy Price</th>
+                            <th>Profit</th>
+                            <th>Profit Margin</th>
+                            <th>Status</th>
+                            <th>Supplier Code</th>
+                            <th>Supplier Name</th>
+                            <th>Size 6</th>
+                            <th>Size 7</th>
+                            <th>Size 8</th>
+                            <th>Size 9</th>
+                            <th>Item Picture</th>
+                        </tr>
+                        </thead>
+                        <tbody id="itemTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 </html>

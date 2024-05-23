@@ -3,115 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <title>Supplier</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font-awsome/css/all.css">
+    <link rel="stylesheet" href="style/Supplier.css">
 </head>
 <body>
-<form id="SupplierForm">
-    <fieldset>
-        <legend>Supplier</legend>
+<main class="container-fluid mt-4" id="supplierContent">
+    <div class="container-fluid">
+        <div class="row mb-4 form-container">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Supplier Information</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="supplierCode" class="form-label">Code:</label>
+                                <input disabled name="supplierCode" type="text" class="form-control form-control-custom" id="supplierCode">
+                            </div>
+                            <div class="mb-3">
+                                <label for="supplierName" class="form-label">Name:</label>
+                                <input name="supplierName" type="text" class="form-control form-control-custom" id="supplierName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="supplierEmail" class="form-label">Email:</label>
+                                <input name="supplierEmail" type="text" class="form-control form-control-custom" id="supplierEmail">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cmbSupplierCategory" class="form-label">Category:</label>
+                                <select name="cmbSupplierCategory" class="form-select form-control-custom" id="cmbSupplierCategory">
+                                    <option value="" selected>Choose...</option>
+                                    <option value="Local">Local</option>
+                                    <option value="International">International</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txtSupAddLine01" class="form-label">Address:</label>
+                                <input name="txtSupAddLine01" type="text" class="form-control form-control-custom" id="txtSupAddLine01">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupAddLine02" class="form-label">City & State:</label>
+                                <input name="txtSupAddLine02" type="text" class="form-control form-control-custom" id="txtSupAddLine02">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupMobile" class="form-label">Mobile No:</label>
+                                <input name="txtSupMobile" type="text" class="form-control form-control-custom" id="txtSupMobile">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupLandLine" class="form-label">Land Line No:</label>
+                                <input name="txtSupLandLine" type="text" class="form-control form-control-custom" id="txtSupLandLine">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-success btn-custom" id="btnSaveCustomer">Save</button>
+                        <button class="btn btn-danger btn-custom" id="btnCusDelete">Delete</button>
+                        <button class="btn btn-warning btn-custom" id="btnUpdate">Update</button>
+                        <button class="btn btn-secondary btn-custom" id="btnCustomerClear">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <!--Supplier Code-->
-        <label for="supplierCode">Supplier Code : </label><br>
-        <input name="supplierCode" id="supplierCode" type="text">
-        <br>
-        <br>
+        <!-- Search Bar -->
+        <div class="row mb-4 search-bar">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="employeeSearchInput">
+                        <button class="btn btn-outline-success" type="submit" id="SearchEmployee">Search</button>
+                    </form>
+                </nav>
 
-        <!--Supplier Name-->
-        <label for="supplierName">Supplier Name : </label><br>
-        <input name="supplierName" id="supplierName" type="text">
-        <br>
-        <br>
-
-        <!--Category-->
-        <label for="suppCategory">Category: </label><br>
-        <select id="suppCategory" >
-            <option selected>Select Category</option>
-            <option value="LOCAL">Local</option>
-            <option value="INTERNATIONAL">International</option>
-        </select>
-        <br>
-        <br>
-
-        <!--Building No / Name-->
-        <label for="addressLine01">Building No / Name : </label><br>
-        <input name="addressLine01" id="addressLine01" type="text">
-        <br>
-        <br>
-
-        <!--Lane-->
-        <label for="addressLine02">Lane : </label><br>
-        <input name="addressLine02" id="addressLine02" type="text">
-        <br>
-        <br>
-
-        <!--Main City-->
-        <label for="addressLine03">Main City : </label><br>
-        <input name="addressLine03" id="addressLine03" type="text">
-        <br>
-        <br>
-
-        <!--Main State-->
-        <label for="addressLine04">Main State : </label><br>
-        <input name="addressLine04" id="addressLine04" type="text">
-        <br>
-        <br>
-
-        <!--Postal Code-->
-        <label for="addressLine05">Postal Code : </label><br>
-        <input name="addressLine05" id="addressLine05" type="text">
-        <br>
-        <br>
-
-        <!--Origin Country-->
-        <label for="addressLine06">Origin Country : </label><br>
-        <input name="addressLine06" id="addressLine06" type="text">
-        <br>
-        <br>
-
-        <!--Contact No.1-->
-        <label for="txtContactNo.1">Contact No.1 : </label><br>
-        <input name="contactNo.1" id="txtContactNo.1" type="tel">
-        <br>
-        <br>
-
-        <!--Contact No.2-->
-        <label for="txtContactNo.2">Contact No.2 : </label><br>
-        <input name="contactNo.2" id="txtContactNo.2" type="tel">
-        <br>
-        <br>
-
-        <!--Email -->
-        <label for="txtEmail">Email : </label><br>
-        <input name="email" id="txtEmail" type="text">
-        <br>
-        <br>
-
-        <!--Table Content-->
-        <table border="1" width="1800">
-
-            <thead>
-            <tr>
-                <th>Supplier Code</th>
-                <th>Supplier Name</th>
-                <th>Category</th>
-                <th>Building No / Name</th>
-                <th>Lane</th>
-                <th>Main City</th>
-                <th>Main State</th>
-                <th>Postal Code</th>
-                <th>Origin Country</th>
-                <th>Contact No.1</th>
-                <th>Contact No.2</th>
-                <th>Email</th>
-            </tr>
-            </thead>
-        </table>
-
-        <button type="submit" formaction="save_customer">Save Customer</button>
-        <button type="submit" formaction="delete_customer">Delete</button>
-        <button type="submit" formaction="update_customer">Update</button>
-        <button type="submit" formaction="get_all_customer">Get All</button>
-        <button type="reset">Clear Data</button>
-    </fieldset>
-</form>
+                <!-- Table -->
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Category</th>
+                            <th>Address</th>
+                            <th>City & State</th>
+                            <th>Mobile No</th>
+                            <th>LandLine No</th>
+                        </tr>
+                        </thead>
+                        <tbody id="supplierTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>

@@ -42,10 +42,10 @@ $("#btnSaveSupplier").click(function (){
 })
 
 function SaveSupplier() {
-    let code = $("#SupCode").val();
-    let name = $("#txtSupName").val();
-    let email = $("#txtSupEmail").val();
-    let category = $("#cmbSupCategory").val();
+    let code = $("#supplierCode").val();
+    let name = $("#supplierName").val();
+    let email = $("#supplierEmail").val();
+    let category = $("#cmbSupplierCategory").val();
     let addressLine1 = $("#txtSupAddLine01").val();
     let addressLine2 = $("#txtSupAddLine02").val();
     let mobileContact = $("#txtSupMobile").val();

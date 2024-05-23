@@ -6,149 +6,156 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/font-awsome/css/all.css">
+    <link rel="stylesheet" href="style/Order.css">
 </head>
 <body>
-<main class="container-fluid" id="orderContent">
-    <div class="container-fluid mt-2" >
-        <div class="row border" >
-            <div class="col-12 col-md-4  mt-3 p-3 text-primary-emphasis  border border-primary-subtle rounded-3"
-                 style="border-radius: 10px; border: 2px solid #0BB256; background-color: lightblue">
-                <h4 style="text-align: center; color: #0BB256; ">Invoice Details</h4>
-                <div class="row g-2" style="color: black">
-                    <div class="col-12">
-                        <label class="form-label">Cashier Name :</label>
-                        <label class="form-label" id="lblCashierName">Hasitha</label>
-                    </div>
-                    <div class="col-6">
-                        <label  class="form-label">Order Id :</label>
-                        <input disabled type="text" id="txtOrderId" class="form-control" aria-label="Last name"  style="background-color: white;color: black">
-                        <label  id="txtOrder" class="form-label" style="display: none;color: #0BB256"> :</label>
-                    </div>
-                    <div class="col-6">
-                        <label for="txtOrderDate" class="form-label">Order Date :</label>
-                        <input type="date" id="txtOrderDate" class="form-control"  aria-label="Order Date"  style="background-color: white;color: black">
-                    </div>
-
-
-                    <div class="col-6">
-                        <label for="cmbCustomerIds" class="form-label">Customer :</label>
-                        <select id="cmbCustomerIds" class="form-select"  style="background-color: white;color: black"></select>
-                    </div>
-
-                    <div class="col-6">
-                        <label for="lblCustomerName" class="form-label" >Customer Name :</label>
-                        <input disabled type="text" id="lblCustomerName" class="form-control"  aria-label="Last name"  style="background-color: white;color: black">
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4  mt-3 p-3 text-primary-emphasis  border border-primary-subtle rounded-3"
-                    style="border-radius: 10px; border: 2px solid #0BB256; background-color: lightblue">
-                <!--item section-->
-                <h4 style="text-align: center; color: #0BB256">Item Select</h4>
-                <div class="row g-2" style="color: black">
-                    <div class="col-4">
-                        <label for="cmbItemCodes" class="form-label">Item :</label>
-                        <select id="cmbItemCodes" class="form-select"  style="background-color: white;color: black"></select>
-                    </div>
-                    <div class="col-4">
-                        <label for="lblItemName" class="form-label">Item Name :</label>
-                        <input disabled type="text" id="lblItemName" class="form-control"  aria-label="Last name"  style="background-color: white;color: black">
-                    </div>
-                    <div class="col-4">
-                        <label for="lblItemUnitPrice" class="form-label">Price :</label>
-                        <input disabled type="text" id="lblItemUnitPrice" class="form-control"  aria-label="Last name"  style="background-color: white;color: black">
-                    </div>
-                    <div class="col-6">
-                        <label class="form-label">Item Size :</label>
-                        <select id="cmbItemSizes" class="form-select" aria-label="Default select example" disabled  style="background-color: white;color: black">
-                            <option selected></option>
-                            <option value="size_6">Size-6</option>
-                            <option value="size_7">Size-7</option>
-                            <option value="size_8">Size-8</option>
-                            <option value="size_9">Size-9</option>
-                        </select>
-                    </div>
-                    <div class="col-6">
-                        <label for="lblQtyOnHand" class="form-label">QtyOnHand :</label>
-                        <input disabled type="text" id="lblQtyOnHand" class="form-control" aria-label="Last name"  style="background-color: white;color: black">
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label">OrderQty :</label>
-                        <input type="text" id="txtOrderQty" class="form-control"  aria-label="Last name"  style="background-color: white;color: black">
-                        <div style="display: flex">
-                            <label id="qtymassage" class="form-label" style="font-size: 12px; color: red; display: none">Please enter amount lower than :</label>
-                            <label id="h1hello" style="position:relative;font-size: 12px; color: red; left:1%; display: none"> </label>
+<main class="container-fluid mt-4" id="customerContent">
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4>Order Information</h4>
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3 p-3 text-primary-emphasis border border-primary-subtle rounded-3"
+                             style="background-color: white">
+                            <h4 style="text-align: center; color: black;">Invoice Details</h4>
+                            <div class="row g-2" style="color: black;">
+                                <div class="col-12">
+                                    <label class="form-label">Cashier Name :</label>
+                                    <label class="form-label" id="lblCashierName">Hasitha</label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Order Id :</label>
+                                    <input disabled type="text" id="txtOrderId" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label for="txtOrderDate" class="form-label">Order Date :</label>
+                                    <input type="date" id="txtOrderDate" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label for="cmbCustomerIds" class="form-label">Customer :</label>
+                                    <select id="cmbCustomerIds" class="form-select" style="background-color: white; color: black"></select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lblCustomerName" class="form-label">Customer Name :</label>
+                                    <input disabled type="text" id="lblCustomerName" class="form-control" style="background-color: white; color: black">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button id="btnAddToCart" type="button" class="btn btn-warning mt-3  ">AddToCart</button>
-                </div>
-
-
-                <!-- Porch Section  ///////////////////////////////////////////////////////////////////////////////////////////// -->
-            </div>
-            <div
-                    class="col-12 col-md-4  mt-3 p-3 text-primary-emphasis  border border-primary-subtle rounded-3"
-                    style="border-radius: 10px; border: 2px solid #0BB256; background-color: lightblue">
-                <h2 style="color: blue">Total : RS <span id="lblTotal">0</span>/=</h2>
-                <h2 style=" color: red">SubTotal : RS <span id="lblSubTotal">0</span>/=</h2>
-                <div class="row g-2" style="color: black">
-                    <div class="col-6">
-                        <label for="txtCash" class="form-label">Cash :</label>
-                        <input type="text" id="txtCash" class="form-control" aria-label="First name"  style="background-color: white;color: black">
-                        <!--              <div style="display: flex">-->
-                        <!--                <label id="cashLOwMasse" class="form-label"  style="background-color: #283640;color: white; display: none">Please enter amount greater than :</label>-->
-                        <!--                <label id="cashShow"  style="background-color: #283640;color: white; display: none"> </label>-->
-                        <!--              </div>-->
-                    </div>
-                    <div class="col-6">
-                        <label for="txtDiscount" class="form-label">Discount :</label>
-                        <input type="number" id="txtDiscount" class="form-control" aria-label="Last name"  style="background-color: white;color: black">
-                    </div>
-                    <div class="col-6">
-                        <label class="form-label">Payment Method :</label>
-                        <select class="form-select" id="cmbPaymentMethod"  style="background-color: white;color: black">
-                            <option value="Cash">Cash</option>
-                            <option value="Card">Card</option>
-                        </select>
-                    </div>
-
-                    <div class="col-6">
-                        <label class="form-label">Add Points :</label>
-                        <input id="txtAddPoints" class="form-control" aria-label="Last name"  style="background-color: white;color: black">
-                    </div>
-
-                    <div class="col-12">
-                        <label for="lblBalance" class="form-label">Balance :</label>
-                        <input type="text" id="lblBalance" class="form-control" aria-label="Last name"  style="background-color: white;color: black">
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button id="btnPlaceOrder" type="button" class="btn btn-success" style="width: 30%;">Purchase</button>
+                        <div class="col-12 col-md-4 mt-3 p-3 text-primary-emphasis border border-primary-subtle rounded-3"
+                             style="background-color: white">
+                            <h4 style="text-align: center; color: black">Item Select</h4>
+                            <div class="row g-2" style="color: black">
+                                <div class="col-4">
+                                    <label for="cmbItemCodes" class="form-label">Item :</label>
+                                    <select id="cmbItemCodes" class="form-select" style="background-color: white; color: black"></select>
+                                </div>
+                                <div class="col-4">
+                                    <label for="lblItemName" class="form-label">Item Name :</label>
+                                    <input disabled type="text" id="lblItemName" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-4">
+                                    <label for="lblItemUnitPrice" class="form-label">Price :</label>
+                                    <input disabled type="text" id="lblItemUnitPrice" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Item Size :</label>
+                                    <select id="cmbItemSizes" class="form-select" aria-label="Default select example" disabled style="background-color: white; color: black">
+                                        <option selected></option>
+                                        <option value="size_6">Size-6</option>
+                                        <option value="size_7">Size-7</option>
+                                        <option value="size_8">Size-8</option>
+                                        <option value="size_9">Size-9</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lblQtyOnHand" class="form-label">QtyOnHand :</label>
+                                    <input disabled type="text" id="lblQtyOnHand" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">OrderQty :</label>
+                                    <input type="text" id="txtOrderQty" class="form-control" style="background-color: white; color: black">
+                                    <div style="display: flex">
+                                        <label id="qtymassage" class="form-label" style="font-size: 12px; color: red; display: none">Please enter amount lower than :</label>
+                                        <label id="h1hello" style="position: relative; font-size: 12px; color: red; left: 1%; display: none"> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button id="btnAddToCart" type="button" class="btn btn-primary mt-3">AddToCart</button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mt-3 p-3 text-primary-emphasis border border-primary-subtle rounded-3"
+                             style="background-color: white">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h2 style="color: blue">Total : RS <span id="lblTotal">0</span>/=</h2>
+                                    <h2 style="color: red">SubTotal : RS <span id="lblSubTotal">0</span>/=</h2>
+                                </div>
+                                <div class="col-6">
+                                    <label for="txtCash" class="form-label">Cash :</label>
+                                    <input type="text" id="txtCash" class="form-control" style="background-color: white; color: black">
+                                    <div style="display: flex">
+                                        <label id="cashLOwMasse" class="form-label" style="background-color: #283640; color: white; display: none">Please enter amount greater than :</label>
+                                        <label id="cashShow" style="background-color: #283640; color: white; display: none"> </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="txtDiscount" class="form-label">Discount :</label>
+                                    <input type="number" id="txtDiscount" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Payment Method :</label>
+                                    <select class="form-select" id="cmbPaymentMethod" style="background-color: white; color: black">
+                                        <option value="Cash">Cash</option>
+                                        <option value="Card">Card</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Add Points :</label>
+                                    <input id="txtAddPoints" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-12">
+                                    <label for="lblBalance" class="form-label">Balance :</label>
+                                    <input type="text" id="lblBalance" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button id="btnPlaceOrder" type="button" class="btn btn-warning" style="width: 30%;">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--Table-->
-    <div class="modal-footer mb-3" style=" position: relative;">
-        <table class="table table-bordered table-hover table-striped-columns">
-            <thead>
-            <tr class="table mt-5 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
-                <th >Item Code</th>
-                <th >Item Name</th>
-                <th >Size</th>
-                <th >Unit Price</th>
-                <th >Quantity</th>
-                <th >Total</th>
-            </tr>
-            </thead>
-            <tbody id="tbody-orderCart" class="table-group-divider">
-            </tbody>
-        </table>
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="employeeSearchInput">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </nav>
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Customer Id</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Salary</th>
+                            <th>Option</th>
+                        </tr>
+                        </thead>
+                        <tbody id="customTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
-
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
