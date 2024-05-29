@@ -1,11 +1,14 @@
-package lk.ijse.gdse66.shoe_shop_management.app.service.impl;
+package lk.ijse.gdse66.footflex.demo.service;/*
+    this application is copyright protected
+    Author : kumara
+    Date : 4/30/2024
+*/
 
-import lk.ijse.gdse66.shoe_shop_management.app.dto.CustomerDTO;
-import lk.ijse.gdse66.shoe_shop_management.app.entity.Customer;
-import lk.ijse.gdse66.shoe_shop_management.app.repository.CustomerRepo;
-import lk.ijse.gdse66.shoe_shop_management.app.service.CustomerService;
-import lk.ijse.gdse66.shoe_shop_management.app.service.exception.DuplicateRecordException;
-import lk.ijse.gdse66.shoe_shop_management.app.service.exception.NotFoundException;
+import lk.ijse.gdse66.footflex.demo.dto.CustomerDTO;
+import lk.ijse.gdse66.footflex.demo.entity.Customer;
+import lk.ijse.gdse66.footflex.demo.repository.CustomerRepo;
+import lk.ijse.gdse66.footflex.demo.service.exception.DuplicateRecordException;
+import lk.ijse.gdse66.footflex.demo.service.exception.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,24 +16,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
-
+public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private CustomerRepo customerRepo;
 
     @Autowired
     private ModelMapper mapper;
+
     @Override
     public CustomerDTO saveCustomer(CustomerDTO customerDTO) {
         if (customerRepo.existsById(customerDTO.getCode())){
             throw new DuplicateRecordException("Customer Id is already exists !!");
         }
-      return mapper.map(customerRepo.save(mapper.map(customerDTO, Customer.class)),CustomerDTO.class);
+        return mapper.map(customerRepo.save(mapper.map(customerDTO, Customer.class)),CustomerDTO.class);
     }
 
     @Override
     public CustomerDTO updateCustomer(CustomerDTO customerDTO) {
-
         if (!customerRepo.existsById(customerDTO.getCode())){
             throw new NotFoundException("Can't find customer id !!");
         }
@@ -60,8 +62,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> searchCustomer(String name) {
-
-       return customerRepo.findByNameStartingWith(name).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
+        return customerRepo.findByNameStartingWith(name).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
     }
 
     @Override
@@ -86,6 +87,5 @@ public class CustomerServiceImpl implements CustomerService {
         id = prefix + String.format("%03d", nextNumericPart);
 
         return id;
-
     }
 }

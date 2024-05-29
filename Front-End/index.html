@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HELLO SHOES</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link href="assets/bootstrap/css/b" rel="stylesheet">
+    <link rel="stylesheet" href="style/Dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link href="assets/bootstrap/css/b" rel="stylesheet">
+    <link href="assets/bootstrap-5.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fontawesome-free-6.4.2-web/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: white; ">
+
+<!--header-->
+<main class="container-fluid " id="navigation">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid" style="background-color: lightblue;">
+                <a class="navbar-brand" href="#" style="color: black">Hello Shoes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color:white">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item" id="lnkHome"><a class="nav-link active" aria-current="page" href="#" style="color: black">Home</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkCustomer" href="#" style="color: black" >Customer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkEmployee" href="#" style="color: black" >Employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkSupplier" href="#" style="color: black" >Supplier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkItem" href="#" style="color: black">Item</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkOrders" href="#" style="color: black">PlaceOrder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkOrderDetails" href="#" style="color: black">Order details</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkLogin" href="#" style="color: black ">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="lnkSignup" href="#" style="color: blueviolet">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+</main>
+
+<!--  singup & login page ///////////////////////////////////////////////////////////////////////////////////////////// -->
+<main id="loginPage" style="background-color: white;color: black;">
+    <div class="container">
+        <div class="row justify-content-center mt-5" style="background-color: white; color: black;">
+            <div class="col-md-6">
+                <div class="card"  style="background-color: white ;color: gray; border-color: black; box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);">
+                    <div class="card-header d-flex justify-content-between align-items-center" style="color: black;">
+                        Login
+                        <button type="button" class="btn-close" aria-label="Close" id="loginClose" style="color: white; background-color: red "></button>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="txtLogInEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="txtLogInEmail" aria-describedby="emailHelp" style="background-color: #283640;color: white">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtLogInPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="txtLogInPassword" style="background-color: #283640;color: white">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="loginSubmit">Login</button>
+                            <div class="d-flex justify-content-center gap-2 my-3">
+                                <p class=" m-0" style="font-size: 16px">Don't have an account?</p>
+                                <p class="d-flex align-items-center m-0"><a id="link-sign-up" class="link-opacity-100-hover" href="#" style="font-size: 16px">sign up</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<main class="container-fluid" id="singUpPage" style="background-color: white; color: black">
+    <div class="container">
+        <div class="row justify-content-center mt-5" style="background-color: white;">
+            <div class="col-md-6" >
+                <div class="card"  style="background-color: white ;color: gray; border-color: black; box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);">
+                    <div class="card-header d-flex justify-content-between align-items-center" style="background-color: white; color: black">
+                        Signup
+                        <button type="button" class="btn-close" aria-label="Close" id="singUpClose" style="background-color: red;"></button>
+                    </div>
+                    <div class="card-body" style="background-color: #2C3A47; color: white">
+                        <form class="needs-validation" novalidate>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="txtSignUpFirstName" style="background-color: #283640;color: white" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="txtSignUpLastName" style="background-color: #283640;color: white" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSignUpEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="txtSignUpEmail" aria-describedby="emailHelp" style="background-color: #283640;color: white" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSignUpPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="txtSignUpPassword" style="background-color: #283640;color: white" required>
+                                <div class="invalid-feedback">
+                                    Please enter a password.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSignUpConfirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="txtSignUpConfirmPassword" style="background-color: #283640;color: white" required>
+                                <div class="invalid-feedback">
+                                    Please confirm your password.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cmbSignUpRole" class="form-label">Role</label>
+                                <select class="form-select" id="cmbSignUpRole" style="background-color: #283640;color: white" required>
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a role.
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="SignupSubmit" style="background-color: #4cafac; border: none; color: white; padding: 10px 27px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 12px;">Signup</button>
+                            <div class="d-flex justify-content-center gap-2 my-3">
+                                <p class="m-0" style="font-size: 16px">Already have an account?</p>
+                                <p class="d-flex align-items-center m-0"><a id="link-log-in" class="link-opacity-100-hover" href="#" style="font-size: 16px">Log in</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- dashboard   ///////////////////////////////////////////////////////////////////////////////////////////// -->
+<main class="container-fluid" id="dashboardContent" >
+    <section id="home" class="container mt-5">
+        <div class="search text-center">
+            <h1>What are you looking for ...?</h1>
+            <input type="text" placeholder="Search ..." id="text">
+            <span class="hr mt-3"><hr></span>
+        </div>
+
+            <div class="row" style="margin-top: 10px">
+                <section class="col-md-4 container-col">
+                    <img src="assets/bac/1.jpeg" alt="An image" class="img-fluid">
+                </section>
+
+                <section class="col-md-4 container-col">
+                    <img src="assets/bac/2.jpeg" alt="An image" class="img-fluid">
+                </section>
+
+                <section class="col-md-4 container-col">
+                    <img src="assets/bac/3.jpeg" alt="An image" class="img-fluid">
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="background-color: #343a40">
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-3 footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col">
+                    <h4>Online Shop</h4>
+                    <ul>
+                        <li><a href="#">Shoes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<!-- Customer main  ///////////////////////////////////////////////////////////////////////////////////////////// -->
+<main class="container-fluid" id="customerContent">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Customer Information</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="cId" class="form-label">Code:</label>
+                                <input disabled name="cId" type="text" class="form-control form-control-custom" id="cId">
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="cName" class="form-label">Name:</label>
+                                <input name="cName" type="text" class="form-control form-control-custom" id="cName">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cEmail" class="form-label">Email:</label>
+                                <input name="cEmail" type="email" class="form-control form-control-custom" id="cEmail">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cGender" class="form-label">Gender:</label>
+                                <select name="cGender" class="form-select form-control-custom" id="cGender">
+                                    <option value="" selected>Choose...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label for="cDob" class="form-label">Date of Birth:</label>
+                                <input name="cDob" type="date" class="form-control form-control-custom" id="cDob">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="cAddressLine" class="form-label">Address:</label>
+                                <input name="cAddress" type="text" class="form-control form-control-custom" id="cAddressLine">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cStateCity" class="form-label">City & State:</label>
+                                <input name="cStateCity" type="text" class="form-control form-control-custom" id="cStateCity">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cLoyaltyDate" class="form-label">Loyalty Date:</label>
+                                <input name="cLoyaltyDate" type="date" class="form-control form-control-custom" id="cLoyaltyDate">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cContact" class="form-label">Contact:</label>
+                                <input name="cContact" type="text" class="form-control form-control-custom" id="cContact">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-success btn-custom" id="btnCusSave">Save</button>
+                        <button class="btn btn-danger btn-custom" id="btnCusDelete">Delete</button>
+                        <button class="btn btn-warning btn-custom" id="btnCusUpdate">Update</button>
+                        <button class="btn btn-secondary btn-custom" id="btnCusClear">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="employeeSearchInput">
+                        <button class="btn btn-outline-success" type="submit" id="SearchEmployee">Search</button>
+                    </form>
+                </nav>
+                <!---->
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>Loyalty Date</th>
+                            <th>Loyalty Level</th>
+                            <th>Loyalty Points</th>
+                            <th>Last Purchases</th>
+                        </tr>
+                        </thead>
+                        <tbody id="customTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- employee main  ///////////////////////////////////////////////////////////////////////////////////////////// -->
+<main class="container-fluid" id="employeeContent">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Employee Information</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="eId" class="form-label">Code:</label>
+                                <input disabled name="eId" type="text" class="form-control form-control-custom" id="eId">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eName" class="form-label">Name:</label>
+                                <input name="eName" type="text" class="form-control form-control-custom" id="eName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eGender" class="form-label">Gender:</label>
+                                <select name="eGender" class="form-select form-control-custom" id="eGender">
+                                    <option value="" selected>Choose...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eDob" class="form-label">Date of Birth:</label>
+                                <input name="eDob" type="date" class="form-control form-control-custom" id="eDob">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eStatus" class="form-label">Status:</label>
+                                <select name="eStatus" class="form-select form-control-custom" id="eStatus">
+                                    <option value="" selected>Choose...</option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eDesignation" class="form-label">Designation:</label>
+                                <select name="eDesignation" class="form-select form-control-custom" id="eDesignation">
+                                    <option selected>Choose...</option>
+                                    <option>Manager</option>
+                                    <option>Supervisor</option>
+                                    <option>Cashier</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eJoinDate" class="form-label">Join Date:</label>
+                                <input name="eJoinDate" type="date" class="form-control form-control-custom" id="eJoinDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eRole" class="form-label">Access Role:</label>
+                                <select name="eROle" class="form-select form-control-custom" id="eRole">
+                                    <option selected>Choose...</option>
+                                    <option>Admin</option>
+                                    <option>User</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="eImage" class="form-label">File upload:</label>
+                                <input name="img[]" type="file" class="form-control form-control-custom" id="eImage">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eBranch" class="form-label">Branch:</label>
+                                <select name="eBranch" class="form-select form-control-custom" id="eBranch">
+                                    <option selected>Choose...</option>
+                                    <option>Galle</option>
+                                    <option>Colombo</option>
+                                    <option>Matara</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="eEmail" class="form-label">Email:</label>
+                                <input name="email" type="email" class="form-control form-control-custom" id="eEmail">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="ePhone" class="form-label">Mobile (phone):</label>
+                                <input name="ePhone" type="text" class="form-control form-control-custom" id="ePhone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eGuardian" class="form-label">Guardian Name:</label>
+                                <input name="eGuardian" type="text" class="form-control form-control-custom" id="eGuardian">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eHomeNumber" class="form-label">Guardian (mobile):</label>
+                                <input name="eHomeNumber" type="text" class="form-control form-control-custom" id="eHomeNumber">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eAddress" class="form-label">Address:</label>
+                                <input name="eAddress" type="text" class="form-control form-control-custom" id="eAddress">
+                            </div>
+                            <div class="mb-3">
+                                <label for="eState" class="form-label">City & State:</label>
+                                <input name="eState" type="text" class="form-control form-control-custom" id="eState">
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-success btn-custom" id="btnEmpSave">Save</button>
+                        <button class="btn btn-danger btn-custom" id="btnEmpDelete">Delete</button>
+                        <button class="btn btn-warning btn-custom" id="btnEmpUpdate">Update</button>
+                        <button class="btn btn-secondary btn-custom" id="btnEmpClear">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="customerSearchInput">
+                        <button class="btn btn-outline-success" type="submit" id="SearchCustomer">Search</button>
+                    </form>
+                </nav>
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Status</th>
+                            <th>Designation</th>
+                            <th>Join Date</th>
+                            <th>Access Role</th>
+                            <th>File upload</th>
+                            <th>Branch</th>
+                            <th>Email</th>
+                            <th>Mobile (phone)</th>
+                            <th>Guardian Name</th>
+                            <th>Guardian (mobile)</th>
+                            <th>Address</th>
+                            <th>City & State</th>
+                        </tr>
+                        </thead>
+                        <tbody id="employeeTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Supplier main  ///////////////////////////////////////////////////////////////////////////////////////////// -->
+<main class="container-fluid" id="supplierContent">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row mb-4 form-container">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Supplier Information</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="SupCode" class="form-label">Code:</label>
+                                <input disabled name="supplierCode" type="text" class="form-control form-control-custom" id="SupCode">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupName" class="form-label">Name:</label>
+                                <input name="supplierName" type="text" class="form-control form-control-custom" id="txtSupName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupEmail" class="form-label">Email:</label>
+                                <input name="supplierEmail" type="text" class="form-control form-control-custom" id="txtSupEmail">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cmbSupplierCategory" class="form-label">Category:</label>
+                                <select name="cmbSupplierCategory" class="form-select form-control-custom" id="cmbSupplierCategory">
+                                    <option value="" selected>Choose...</option>
+                                    <option value="Local">Local</option>
+                                    <option value="International">International</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txtSupAddLine01" class="form-label">Address:</label>
+                                <input name="txtSupAddLine01" type="text" class="form-control form-control-custom" id="txtSupAddLine01">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupAddLine02" class="form-label">City & State:</label>
+                                <input name="txtSupAddLine02" type="text" class="form-control form-control-custom" id="txtSupAddLine02">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupMobile" class="form-label">Mobile No:</label>
+                                <input name="txtSupMobile" type="text" class="form-control form-control-custom" id="txtSupMobile">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtSupLandLine" class="form-label">Land Line No:</label>
+                                <input name="txtSupLandLine" type="text" class="form-control form-control-custom" id="txtSupLandLine">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-success btn-custom" id="btnSuppSave">Save</button>
+                        <button class="btn btn-danger btn-custom" id="btnSuppDelete">Delete</button>
+                        <button class="btn btn-warning btn-custom" id="btnSuppUpdate">Update</button>
+                        <button class="btn btn-secondary btn-custom" id="btnSuppClear">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+
+        <section id="supplier-search-content" class="col-12 col-sm-8 my-2 align-items-center">
+            <section id="supplier-search">
+                <form class="row gx-3 gy-2 align-items-center">
+                    <div class="col-sm-3">
+                        <label class="visually-hidden">Preference</label>
+                        <select class="form-select" id="cmbSupplierSearch">
+                            <option value="code">code</option>
+                            <option value="Name">Name</option>
+                        </select>
+                    </div>
+                    <div class="w-50 col-sm-5">
+                        <label class="visually-hidden" >Name</label>
+                        <input type="text" class="form-control" id="txtSupplierSearch" placeholder="Search Supplier">
+                    </div>
+                    <div class="col-auto">
+                        <button id="btnSupplierSearch" type="button" class="btn btn-outline-primary">Search</button>
+                    </div>
+                    <div class="col-auto">
+                        <button id="searchbtnSupplierClear" type="button" class="btn btn-outline-warning">Clear</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+                <!-- Table -->
+        <div class="card p-4 box-shadow">
+            <table class="table table-bordered table-hover">
+                <thead class="table-primary">
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Category</th>
+                    <th>Address</th>
+                    <th>City & State</th>
+                    <th>Mobile No</th>
+                    <th>LandLine No</th>
+                </tr>
+                </thead>
+                <tbody id="supplierTbl">
+                <!-- Table rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+
+<!-- Item main  ///////////////////////////////////////////////////////////////////////////////////////////// -->
+<main class="container-fluid" id="itemContent">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Item Information</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txtItemCode" class="form-label">Code:</label>
+                                <input disabled name="itemId" type="text" class="form-control form-control-custom" id="txtItemCode">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtItemDesc" class="form-label">Description:</label>
+                                <input name="itemName" type="text" class="form-control form-control-custom" id="txtItemDesc">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtItemCategory" class="form-label">Category:</label>
+                                <input name="itemCategory" type="text" class="form-control form-control-custom" id="txtItemCategory">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtItemUnitPriceSale" class="form-label">Sale Price:</label>
+                                <input name="itemUnitPriceSale" type="number" class="form-control form-control-custom" id="txtItemUnitPriceSale">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtItemUnitPriceBuy" class="form-label">Buy Price:</label>
+                                <input name="ItemUnitPriceBuy" type="number" class="form-control form-control-custom" id="txtItemUnitPriceBuy">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtItemProfit" class="form-label">Profit:</label>
+                                <input name="itemProfit" type="number" class="form-control form-control-custom" id="txtItemProfit">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtItemProfitMargin" class="form-label">Profit Margin:</label>
+                                <input name="itemProfitMargin" type="number" class="form-control form-control-custom" id="txtItemProfitMargin">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtItemStatus" class="form-label">Status:</label>
+                                <input name="itemStatus" type="text" class="form-control form-control-custom" id="txtItemStatus">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cmbItemSupCode" class="form-label">Supplier Code:</label>
+                                <select name="cmbItemSupCode" class="form-select form-control-custom" id="cmbItemSupCode">
+                                    <option value="" selected>Choose...</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtItemSupName" class="form-label">Supplier Name:</label>
+                                <input name="txtItemSupName" type="text" class="form-control form-control-custom" id="txtItemSupName">
+                            </div>
+
+
+                            <div class="row mb-3 col-12">
+                                <label class="col-sm-3 col-form-label">Sizes :</label>
+                                <div class="row col-sm-9">
+                                    <div class="row">
+                                        <label for="txtItemSize6" class="form-label">Size-6:</label>
+                                        <input name="itemSize6" type="number" class="form-control form-control-custom" id="txtItemSize6">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label for="txtItemSize7" class="form-label">Size-7:</label>
+                                        <input name="itemSize7" type="number" class="form-control form-control-custom" id="txtItemSize7">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label for="txtItemSize8" class="form-label">Size-8:</label>
+                                        <input name="itemSize8" type="number" class="form-control form-control-custom" id="txtItemSize8">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label for="txtItemSize9" class="form-label">Size-9:</label>
+                                        <input name="itemSize9" type="number" class="form-control form-control-custom" id="txtItemSize9">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txtItemProfilePic" class="form-label">Item Picture:</label>
+                                <div class="row">
+                                    <div class="col-sm-9"> <!-- Adjusted width for input field -->
+                                        <input class="form-control" type="file" name="img[]" class="file-upload-default" id="txtItemProfilePic" style="background-color: white;color: black">
+                                    </div>
+                                    <div class="col-sm-3"> <!-- Adjusted width for image -->
+                                        <img src="assets/bac/Screenshot%202024-05-07%20211154.png" alt="Item Image" style="max-width: 75px; max-height: 75px;" id="showItemImage" s>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-success btn-custom" id="btnItemSave">Save</button>
+                        <button class="btn btn-danger btn-custom" id="btnItemDelete">Delete</button>
+                        <button class="btn btn-warning btn-custom" id="btnItemUpdate">Update</button>
+                        <button class="btn btn-secondary btn-custom" id="btnItemClear">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="itemSearchInput">
+                        <button class="btn btn-outline-success" type="submit" id="SearchItem">Search</button>
+                    </form>
+                </nav>
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Sale Price</th>
+                            <th>Buy Price</th>
+                            <th>Profit</th>
+                            <th>Profit Margin</th>
+                            <th>Status</th>
+                            <th>Supplier Code</th>
+                            <th>Supplier Name</th>
+                            <th>Size 6</th>
+                            <th>Size 7</th>
+                            <th>Size 8</th>
+                            <th>Size 9</th>
+                            <th>Item Picture</th>
+                        </tr>
+                        </thead>
+                        <tbody id="itemTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Order main  ///////////////////////////////////////////////////////////////////////////////////////////// -->
+<main class="container-fluid" id="orderContent">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4>Order Information</h4>
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3 p-3 text-primary-emphasis border border-primary-subtle rounded-3"
+                             style="background-color: white">
+                            <h4 style="text-align: center; color: black;">Invoice Details</h4>
+                            <div class="row g-2" style="color: black;">
+                                <div class="col-12">
+                                    <label class="form-label">Cashier Name :</label>
+                                    <label class="form-label" id="lblCashierName">Hasitha</label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Order Id :</label>
+                                    <input disabled type="text" id="txtOrderId" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label for="txtOrderDate" class="form-label">Order Date :</label>
+                                    <input type="date" id="txtOrderDate" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label for="cmbCustomerIds" class="form-label">Customer :</label>
+                                    <select id="cmbCustomerIds" class="form-select" style="background-color: white; color: black"></select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lblCustomerName" class="form-label">Customer Name :</label>
+                                    <input disabled type="text" id="lblCustomerName" class="form-control" style="background-color: white; color: black">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mt-3 p-3 text-primary-emphasis border border-primary-subtle rounded-3"
+                             style="background-color: white">
+                            <h4 style="text-align: center; color: black">Item Select</h4>
+                            <div class="row g-2" style="color: black">
+                                <div class="col-4">
+                                    <label for="cmbItemCodes" class="form-label">Item :</label>
+                                    <select id="cmbItemCodes" class="form-select" style="background-color: white; color: black"></select>
+                                </div>
+                                <div class="col-4">
+                                    <label for="lblItemName" class="form-label">Item Name :</label>
+                                    <input disabled type="text" id="lblItemName" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-4">
+                                    <label for="lblItemUnitPrice" class="form-label">Price :</label>
+                                    <input disabled type="text" id="lblItemUnitPrice" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Item Size :</label>
+                                    <select id="cmbItemSizes" class="form-select" aria-label="Default select example" disabled style="background-color: white; color: black">
+                                        <option selected></option>
+                                        <option value="size_6">Size-6</option>
+                                        <option value="size_7">Size-7</option>
+                                        <option value="size_8">Size-8</option>
+                                        <option value="size_9">Size-9</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lblQtyOnHand" class="form-label">QtyOnHand :</label>
+                                    <input disabled type="text" id="lblQtyOnHand" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">OrderQty :</label>
+                                    <input type="text" id="txtOrderQty" class="form-control" style="background-color: white; color: black">
+                                    <div style="display: flex">
+                                        <label id="qtymassage" class="form-label" style="font-size: 12px; color: red; display: none">Please enter amount lower than :</label>
+                                        <label id="h1hello" style="position: relative; font-size: 12px; color: red; left: 1%; display: none"> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button id="btnAddToCart" type="button" class="btn btn-primary mt-3">AddToCart</button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mt-3 p-3 text-primary-emphasis border border-primary-subtle rounded-3"
+                             style="background-color: white">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h2 style="color: blue">Total : RS <span id="lblTotal">0</span>/=</h2>
+                                    <h2 style="color: red">SubTotal : RS <span id="lblSubTotal">0</span>/=</h2>
+                                </div>
+                                <div class="col-6">
+                                    <label for="txtCash" class="form-label">Cash :</label>
+                                    <input type="text" id="txtCash" class="form-control" style="background-color: white; color: black">
+                                    <div style="display: flex">
+                                        <label id="cashLOwMasse" class="form-label" style="background-color: #283640; color: white; display: none">Please enter amount greater than :</label>
+                                        <label id="cashShow" style="background-color: #283640; color: white; display: none"> </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="txtDiscount" class="form-label">Discount :</label>
+                                    <input type="number" id="txtDiscount" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Payment Method :</label>
+                                    <select class="form-select" id="cmbPaymentMethod" style="background-color: white; color: black">
+                                        <option value="Cash">Cash</option>
+                                        <option value="Card">Card</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Add Points :</label>
+                                    <input id="txtAddPoints" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="col-12">
+                                    <label for="lblBalance" class="form-label">Balance :</label>
+                                    <input type="text" id="lblBalance" class="form-control" style="background-color: white; color: black">
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button id="btnPlaceOrder" type="button" class="btn btn-warning" style="width: 30%;">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav class="d-flex justify-content-end mb-4">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 form-control-custom" type="search" placeholder="Search" aria-label="Search" id="OrderSearchInput">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </nav>
+                <div class="card p-4 box-shadow">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Customer Id</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Salary</th>
+                            <th>Option</th>
+                        </tr>
+                        </thead>
+                        <tbody id="orderTbl">
+                        <!-- Table rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--Order Details Content///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<main class="container-fluid" id="OrderDetailsContent">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="card p-4 box-shadow">
+                    <h4 class="mb-4">Order Details Information</h4>
+                    <form class="row gx-3 gy-2 align-items-center justify-content-center">
+                        <div class="col-sm-3">
+                            <label class="visually-hidden" for="cmbOrderSearch">Preference</label>
+                            <select class="form-select" id="cmbOrderSearch" style="background-color: white;color: black">
+                                <option value="OrderID">Order ID</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="visually-hidden" for="txtSearchOrder">Name</label>
+                            <input type="text" class="form-control" id="txtSearchOrder"  style="background-color: white;color: black">
+                        </div>
+                        <div class="col-auto">
+                            <button id="btnOrderSearch" type="button" class="btn btn-outline-info">Search</button>
+                        </div>
+                        <div class="col-auto">
+                            <button id="btnOrderClear" type="button" class="btn btn-outline-success">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Table-->
+    <div class="modal-footer mb-3" style="position: relative;">
+        <table class="table table-bordered table-hover table-striped-columns">
+            <thead>
+            <tr class="table mt-5 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <th class="bg-primary-subtle">Code</th>
+                <th class="bg-primary-subtle">Name</th>
+                <th class="bg-primary-subtle">Email</th>
+                <th class="bg-primary-subtle">Category</th>
+                <th class="bg-primary-subtle">Address</th>
+                <th class="bg-primary-subtle">Mobile No.</th>
+                <th class="bg-primary-subtle">LandLine No.</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-refund-orders" class="table-group-divider">
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="controller/AdminDashboard.js"></script>
+<script src="db/db.js"></script>
+<!--  <script src="models/CustomerValidation.js"></script>-->
+<script src="controller/Customer.js"></script>
+<script src="controller/validations/CustomerValidation.js"></script>
+
+<script src="controller/Employee.js"></script>
+<script src="controller/validations/EmployeeValidation.js"></script>
+
+<script src="controller/Supplier.js"></script>
+<script src="controller/validations/SupplierValidation.js"></script>
+
+<!--<script src="controller/Inventory.js"></script>
+<script src="controller/validations/InventoryValidation.js"></script>
+
+<script src="controller/Order.js"></script>
+<script src="controller/validations/OrderValidation.js"></script>-->
+
+<!--<script src="controller/OrderDetail.js"></script>-->
+
+
+
+<!--  <script src="models/Item.js"></script>-->
+<!--  <script src="controller/ItemController.js"></script>-->
+<!--  <script src="controller/validations/ItemValidations.js"></script>-->
+
+<!--  <script src="models/OrderValidation.js"></script>-->
+
+
+<!--  <script src="controller/OrderDetailsController.js"></script>-->
+
+<!--  <script src="models/OrderDetails.js"></script>-->
+
+</body>
+</html>

@@ -7,8 +7,11 @@ $(document).ready(function () {
 //next id ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function loadNextOrderId() {
     $.ajax({
-        url:"http://localhost:8080/api/v1/placeOrder/nextOrderId",
+        url:"http://localhost:8082/api/v1/placeOrder/nextOrderId",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#txtOrderId").val(resp);
         },
@@ -108,6 +111,7 @@ $("#btnPlaceOrder").click(function () {
     let orderDate = new Date();
     let totalPrice = $("#lblSubTotal").text();
     let addedPoints;
+
     console.log($("#txtAddPoints").val());
     if ($("#txtAddPoints").val() === ""){
         addedPoints = 0;
@@ -150,10 +154,13 @@ $("#btnPlaceOrder").click(function () {
         console.log(jsonObj);
 
         $.ajax({
-            url: "http://localhost:8080/api/v1/placeOrder/placeOrder",
+            url: "http://localhost:8082/api/v1/placeOrder/placeOrder",
             method: "POST",
             data: jsonObj,
             contentType: "application/json",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
             success: function (resp, textStatus, jqxhr) {
                 console.log("placeOder success: ", resp);
                 clearItemDetailsInputFields();
@@ -222,8 +229,11 @@ function calculateSubTotal() {
 //load item ideesss /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function loadItemCodes() {
     $.ajax({
-        url:"http://localhost:8080/api/v1/placeOrder/loadItemCodes",
+        url:"http://localhost:8082/api/v1/placeOrder/loadItemCodes",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#cmbItemCodes").empty().append(`<option selected></option>`);
             $.each(resp, function (index, code) {
@@ -245,8 +255,11 @@ $("#cmbItemCodes").change(function () {
         $("#cmbItemSizes").prop("disabled", true);
     }
     $.ajax({
-        url:"http://localhost:8080/api/v1/placeOrder/searchItemByCode?code="+code,
+        url:"http://localhost:8082/api/v1/placeOrder/searchItemByCode?code="+code,
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             itemObj = resp;
             console.log(itemObj)
@@ -284,6 +297,9 @@ function loadCustomerIds() {
     $.ajax({
         url:"http://localhost:8080/api/v1/placeOrder/loadCusIds",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#cmbCustomerIds").empty().append(`<option selected></option>`);
             $.each(resp, function (index, cusId) {
@@ -300,8 +316,11 @@ function loadCustomerIds() {
 $("#cmbCustomerIds").change(function () {
     let code = $(this).val();
     $.ajax({
-        url:"http://localhost:8080/api/v1/placeOrder/searchCusById?code="+code,
+        url:"http://localhost:8082/api/v1/placeOrder/searchCusById?code="+code,
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (resp) {
             $("#lblCustomerName").val(resp.name);
         },

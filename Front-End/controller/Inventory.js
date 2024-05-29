@@ -15,7 +15,7 @@ $(document).ready(function () {
     getAllItem();
 });
 
-
+//AllSuppliersCode //////////////////////////////////////////////////////////////////////////////////////////////////
 function loadAllSuppliersCode() {
     $("#cmbItemSupCode").empty();
     $("#cmbItemSupCode").append(`<option selected></option>`);
@@ -23,6 +23,9 @@ function loadAllSuppliersCode() {
         url: "http://localhost:8082/api/v1/inventory/loadSuppliersCode",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             supplierAllData = resp;
             $.each(resp,function (index, supplier) {
@@ -43,8 +46,8 @@ function loadAllSuppliersCode() {
     })
 }
 
-
-$("#btnSaveItem").click(function () {
+//save //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$("#btnItemSave").click(function () {
     if (checkAllItems()) {
         if (checkItemEmptyInputFields()){
             saveItem();
@@ -106,12 +109,15 @@ function saveItem() {
             dataType: "json",
             contentType:"application/json",
             data: JSON.stringify(itemObj),
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
             success: function (resp) {
                 //console.log("customer save success: ", resp);
                 alert("Item saved successfully!")
                 getAllItem()
 
-                $("#btnSaveItem").prop("disabled", true);
+                $("#btnItemSave").prop("disabled", true);
                 $("#btnItemUpdate").prop("disabled", true);
                 $("#btnItemDelete").prop("disabled", true);
             },
@@ -127,7 +133,7 @@ function saveItem() {
     reader.readAsDataURL(itemPicFile);
 }
 
-
+//updateItem ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $("#btnItemUpdate").click(function () {
     if (checkAllItems()) {
         if (checkItemEmptyInputFields()){
@@ -190,11 +196,14 @@ function updateItem() {
             dataType: "json",
             contentType:"application/json",
             data: JSON.stringify(itemObj),
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
             success: function (resp) {
                 //console.log("customer save success: ", resp);
                 // clearItemInputFields()
                 alert("Item updated successfully!")
-                $("#btnSaveItem").prop("disabled", true);
+                $("#btnItemSave").prop("disabled", true);
                 $("#btnItemUpdate").prop("disabled", true);
                 $("#btnItemDelete").prop("disabled", true);
                 getAllItem();
@@ -213,7 +222,7 @@ function updateItem() {
     reader.readAsDataURL(itemPicFile);
 }
 
-
+//Delete ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $("#btnItemDelete").click(function () {
     let code = $("#txtItemCode").val();
     if (code === "") {
@@ -228,6 +237,9 @@ function deleteItem(code) {
         url: "http://localhost:8082/api/v1/inventory/delete?code="+code,
         method: "DELETE",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             console.log("resp = "+resp)
             if (resp){
@@ -243,12 +255,15 @@ function deleteItem(code) {
     })
 }
 
-
+//getall ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function getAllItem() {
     $.ajax({
         url: "http://localhost:8082/api/v1/inventory/getAll",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             loadInventoryDataToTable(resp);
         },
@@ -371,6 +386,7 @@ $("#itemTbl").on('click', 'tr', function () {
     $("#txtItemSize7").val(size7);
     $("#txtItemSize8").val(size8);
     $("#txtItemSize9").val(size9);
+    // $("#itemTbl").empty().append(`<img alt="image" src="${divItemPic}" style="max-width: 100px; height: auto; padding: 0; border-radius: 1.4em;">`);
 })
 
 function checkItemEmptyInputFields(){

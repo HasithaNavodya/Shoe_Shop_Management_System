@@ -1,0 +1,115 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: #343a40;
+    padding: 0.5rem 0; /* Reduced padding */
+}
+
+header h1 img {
+    width: 50px; /* Reduced logo size */
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin-left: 1rem; /* Reduced margin */
+}
+
+header nav ul li a {
+
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem; /* Reduced font size */
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li a i {
+    margin-right: 0.5rem; /* Margin between icon and text */
+    font-size: 1rem; /* Reduced icon size */
+}
+
+header nav ul li a:hover {
+
+}
+
+.admin-img {
+    width: 30px; /* Reduced admin image size */
+    height: 30px;
+    border-radius: 50%;
+}
+
+.searchHotel {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.searchHotel h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.searchHotel input {
+    width: 50%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+
+.container .row {
+    margin-top: 2rem;
+}
+
+.container-col img {
+    width: 100%;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.footer {
+
+
+    padding: 0.5rem 0;
+}
+
+.footer h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 0.2rem;
+}
+
+.footer ul li a {
+
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-links a {
+
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.social-links a:hover {
+
+}

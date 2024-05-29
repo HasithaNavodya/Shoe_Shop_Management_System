@@ -1,7 +1,4 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: white;
-}
+
 .box-shadow {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -15,9 +12,7 @@ body {
     color: black;
 
 }
-.btn-custom {
-    margin-right: 10px;
-}
+
 .navbar-brand img {
     border-radius: 50%;
     margin-right: 10px;

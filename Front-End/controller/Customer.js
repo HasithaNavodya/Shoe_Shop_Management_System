@@ -3,11 +3,13 @@ $(document).ready(function () {
     getAllCustomers();
 });
 
-/*Load Next Id*/
 function loadNextCustomerId(){
     $.ajax({
         url:"http://localhost:8082/api/v1/customer/nextId",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (response) {
             $("#cId").val(response);
         },
@@ -17,13 +19,16 @@ function loadNextCustomerId(){
     })
 }
 
-/*GetAll*/
+// getAllside
 function getAllCustomers(){
     $("#customTbl").empty();
     $.ajax({
-        url: "http://localhost:8082/api/v1/customer/GetAll",
+        url: "http://localhost:8080/api/v1/customer/GetAll",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (res) {
             console.log("Response:", res);
             if (res && Array.isArray(res)) {
@@ -70,8 +75,8 @@ function getAllCustomers(){
     });
 }
 
-/*Save*/
-$("#btnSaveCustomer").click(function (){
+// save side
+$("#btnCusSave").click(function (){
     if (checkAllCustomers()) {
         saveCustomer();
     } else {
@@ -100,6 +105,9 @@ function saveCustomer(){
         method:"Post",
         dataType: "json",
         contentType:"application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         data:JSON.stringify({
             "code":id,
             "name":name,
@@ -114,11 +122,12 @@ function saveCustomer(){
             "loyaltyPoints":0
         }),
 
+
         success:function (response) {
             alert("Customer save successfully!")
             getAllCustomers();
-            $("#btnSaveCustomer").prop("disabled", true);
-            $("#btnUpdate").prop("disabled", true);
+            $("#btnCusSave").prop("disabled", true);
+            $("#btnCusUpdate").prop("disabled", true);
             $("#btnCusDelete").prop("disabled", true);
 
         },
@@ -133,8 +142,8 @@ function saveCustomer(){
     })
 }
 
-/*Update*/
-$("#btnUpdate").click(function (){
+// update
+$("#btnCusUpdate").click(function (){
     if (checkAllCustomers()) {
         updateCustomer()
     } else {
@@ -170,6 +179,9 @@ function updateCustomer() {
         method:"Patch",
         dataType:"json",
         contentType:"application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         data:JSON.stringify({
             "code":code,
             "name":name,
@@ -185,8 +197,8 @@ function updateCustomer() {
         success:function (response){
             alert("Customer updated successfully!")
             getAllCustomers();
-            $("#btnSaveCustomer").prop("disabled", true);
-            $("#btnUpdate").prop("disabled", true);
+            $("#btnCusSave").prop("disabled", true);
+            $("#btnCusUpdate").prop("disabled", true);
             $("#btnCusDelete").prop("disabled", true);
         },
 
@@ -200,7 +212,39 @@ function updateCustomer() {
     })
 }
 
-/*append to table value text field*/
+$("#btnCusDelete").click(function () {
+    let code = $("#cId").val();
+    if (code === "") {
+        alert("Please input valid Customer ID!");
+        return;
+    }
+
+    $.ajax({
+        url: "http://localhost:8082/api/v1/customer/delete?code=" + code,
+        method: "DELETE",
+        dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            console.log("Response from server: ", resp);
+            alert(resp.message);
+            if (resp.message === "Customer deleted successfully") {
+                CustomerClear();
+                getAllCustomers();
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log("AJAX error callback triggered");
+            console.log("XHR: ", xhr);
+            console.log("Status: ", status);
+            console.log("Error: ", error);
+        }
+    });
+});
+
+
+// append to table value text field
 $('#customTbl').on('click', 'tr', function (){
     var id= $(this).find('td:eq(1)').text();
     var name = $(this).find('td:eq(2)').text();
@@ -249,6 +293,9 @@ $("#searchInput").on("input", function (){
         url: 'http://localhost:8082/api/v1/customer/search?name='+name,
         method:"GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (res) {
             console.log("Response:", res);
@@ -298,7 +345,7 @@ $("#searchInput").on("input", function (){
 
 });
 
-$("#btnCustomerClear").on("click", function () {
+function CustomerClear() {
     loadNextCustomerId();
     $("#cId").val("");
     $("#cName").val("");
@@ -312,6 +359,10 @@ $("#btnCustomerClear").on("click", function () {
     $("#cLevel").val("");
     $("#cLoyaltyPoint").val("");
     $("#cRecentDate").val("");
+}
+
+$("#btnCustomerClear").on("click", function () {
+    CustomerClear();
 });
 
 function customerCapitalizeFirstLetter(str) {

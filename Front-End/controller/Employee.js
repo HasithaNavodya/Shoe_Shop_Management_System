@@ -5,8 +5,11 @@ $(document).ready(function () {
 
 function loadNextEmployeeId(){
     $.ajax({
-        url:"http://localhost:8082/api/v1/employee/nextId",
+        url:"http://localhost:8080/api/v1/employee/nextId",
         method:"GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success:function (response) {
             $("#eId").val(response);
         },
@@ -16,12 +19,15 @@ function loadNextEmployeeId(){
     })
 }
 
-
+// getall
 function getAllEmployees() {
     $.ajax({
-        url: "http://localhost:8082/api/v1/employee/getAll",
+        url: "http://localhost:8080/api/v1/employee/getAll",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (response) {
             console.log(response);
             loadEmployeeDataInTable(response);
@@ -65,7 +71,7 @@ function loadEmployeeDataInTable(response) {
 }
 
 // save
-$("#eSaveBtn").click(function (){
+$("#btnEmpSave").click(function (){
     if (checkAllEmployees()) {
         saveEmployee();
     } else {
@@ -80,9 +86,9 @@ function saveEmployee(){
     let contact=$("#ePhone").val();
     let addressLine1=$("#eAddress").val();
     let addressLine2=$("#eState").val();
-    let dob=$("#edOb").val();
+    let dob=$("#eDob").val();
     let designation=$("#eDesignation").val();
-    let role=$("#eROle").val();
+    let role=$("#eRole").val();
     let civilStatus=$("#eStatus").val();
     let joinDate=$("#eJoinDate").val();
     let guardian=$("#eGuardian").val();
@@ -115,18 +121,21 @@ function saveEmployee(){
     }
 
     $.ajax({
-        url: 'http://localhost:8082/api/v1/employee/save',
+        url: 'http://localhost:8080/api/v1/employee/save',
         method:"Post",
         processData: false,
         contentType: false,
         data:formData,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success:function (response) {
             console.log(response)
             getAllEmployees();
-            $("#eSaveBtn").prop("disabled", true);
-            $("#eUpdateBtn").prop("disabled", true);
-            $("#eDeleteBtn").prop("disabled", true);
+            $("#btnEmpSave").prop("disabled", true);
+            $("#btnEmpUpdate").prop("disabled", true);
+            $("#btnEmpDelete").prop("disabled", true);
         },
         error:function (xhr,status,err) {
             console.log(err)
@@ -138,7 +147,7 @@ function saveEmployee(){
     })
 }
 
-$("#eUpdateBtn").click(function () {
+$("#btnEmpUpdate").click(function () {
     if (checkAllEmployees()) {
         updateEmployee();
     } else {
@@ -153,9 +162,9 @@ function updateEmployee() {
     let contact = $("#ePhone").val();
     let addressLine1 = $("#eAddress").val();
     let addressLine2 = $("#eState").val();
-    let dob = $("#edOb").val(); // Make sure this is in the correct format
+    let dob = $("#eDob").val(); // Make sure this is in the correct format
     let designation = $("#eDesignation").val();
-    let role = $("#eROle").val();
+    let role = $("#eRole").val();
     let civilStatus = $("#eStatus").val();
     let joinDate = $("#eJoinDate").val();
     let guardian = $("#eGuardian").val();
@@ -199,13 +208,16 @@ function updateEmployee() {
         processData: false,
         contentType: false,
         data: formData,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (response) {
             alert("Employee update Success")
             getAllEmployees();
-            $("#eSaveBtn").prop("disabled", true);
-            $("#eUpdateBtn").prop("disabled", true);
-            $("#eDeleteBtn").prop("disabled", true);
+            $("#btnEmpSave").prop("disabled", true);
+            $("#btnEmpUpdate").prop("disabled", true);
+            $("#btnEmpDelete").prop("disabled", true);
         },
         error: function (xhr, status, err) {
             console.error("Error:", xhr, status, err);
@@ -217,7 +229,39 @@ function updateEmployee() {
     });
 }
 
+$("#btnEmpDelete").click(function () {
+    let code = $("#eId").val();
+    if (code === "") {
+        alert( "Please input valid Employee ID!")
+        return;
+    }
+    deleteEmployee(code);
+})
+function deleteEmployee(code) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/employee/delete?code="+code,
+        method: "DELETE",
+        dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            console.log("resp = "+resp)
+            if (resp){
+                alert("Employee deleted successfully!")
+                employeeClear();
+                getAllEmployees()
+                return;
+            }
+            alert("This employee does not exits!")
+        },
+        error: function (xhr, status, error) {
+            console.log("empDelete = "+error)
+        }
+    })
+}
 
+// search
 $("#searchInput").on("input", function () {
     $("#employeeTbl").empty();
     let name=$("#searchInput").val();
@@ -226,6 +270,9 @@ $("#searchInput").on("input", function () {
         url: 'http://localhost:8082/api/v1/employee/search?name='+name,
         method:"GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success:function (response) {
             console.log(response)
@@ -266,7 +313,7 @@ $("#searchInput").on("input", function () {
     })
 });
 
-
+// click table
 $('#employeeTbl').on('click', 'tr', function (){
     var id= $(this).find('td:eq(0)').text();
     var proPic= $(this).find('td:eq(1)').html();
@@ -285,9 +332,9 @@ $('#employeeTbl').on('click', 'tr', function (){
     var address = $(this).find('td:eq(15)').text();
     var state = $(this).find('td:eq(16)').text();
 
-    $("#eSaveBtn").prop("disabled", false);
-    $("#eUpdateBtn").prop("disabled", false);
-    $("#eDeleteBtn").prop("disabled", false);
+    $("#btnEmpSave").prop("disabled", false);
+    $("#btnEmpUpdate").prop("disabled", false);
+    $("#btnEmpDelete").prop("disabled", false);
 
     console.log("1 "+id)
     console.log("2 "+proPic)
@@ -334,10 +381,10 @@ $('#employeeTbl').on('click', 'tr', function (){
     $("#eId").val(id);
     $("#eName").val(name);
     $("#eEmail").val(email);
-    $("#edOb").val(dob);
+    $("#eDob").val(dob);
     $("#eGender").val(newGender);
     $("#eJoinDate").val(joinDate);
-    $("#eROle").val(role);
+    $("#eRole").val(role);
     $("#eStatus").val(civilStatus);
     $("#eDesignation").val(designation);
     $("#eAddress").val(address );
@@ -348,7 +395,12 @@ $('#employeeTbl').on('click', 'tr', function (){
     $("#eState").val(state );
 })
 
-$("#eClearBtn").on("click", function () {
+$("#btnEmpClear").on("click", function () {
+    employeeClear();
+})
+
+function employeeClear() {
+    loadNextEmployeeId();
     $("#eId").val("");
     $("#eName").val("");
     $("#eEmail").val("");
@@ -364,9 +416,7 @@ $("#eClearBtn").on("click", function () {
     $("#eGuardian").val("");
     $("#eHomeNumber").val("");
     $("#eState").val("");
-})
-
-
+}
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
