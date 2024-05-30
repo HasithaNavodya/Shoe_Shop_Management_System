@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Entity
 @Data
 @AllArgsConstructor
@@ -23,7 +22,6 @@ public class Inventory {
     private String status;
     private String supplierCode;
     private String supplierName;
-
     private Integer size_6;
     private Integer size_7;
     private Integer size_8;

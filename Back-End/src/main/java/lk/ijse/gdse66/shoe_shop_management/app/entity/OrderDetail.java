@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 public class OrderDetail {
     @EmbeddedId
     private OrderDetailPK orderDetailPK;
-
     private String itemName;
     private Double unitPrice;
     private Integer itemQty;

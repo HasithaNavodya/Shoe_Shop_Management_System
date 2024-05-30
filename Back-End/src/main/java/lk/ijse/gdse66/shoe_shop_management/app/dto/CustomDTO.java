@@ -1,8 +1,4 @@
-package lk.ijse.gdse66.shoe_shop_management.app.dto;/*
-    this application is copyright protected
-    Author : kumara
-    Date : 5/19/2024
-*/
+package lk.ijse.gdse66.shoe_shop_management.app.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class CustomDTO {
     private String orderId;
     private String itemCode;

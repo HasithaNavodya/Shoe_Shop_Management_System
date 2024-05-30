@@ -17,12 +17,12 @@ import lk.ijse.gdse66.shoe_shop_management.app.util.CustomerLoyaltyLevel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class OrderDetailServiceImpl implements OrderDetailService {
+
     @Autowired
     private OrderRepo orderRepo;
 
@@ -108,7 +108,6 @@ public class OrderDetailServiceImpl implements OrderDetailService {
         }
     }
 
-
     @Override
     public boolean refundOrderDetails(CustomDTO customDTO) {
         OrderDetailPK pk = new OrderDetailPK(customDTO.getOrderId(),customDTO.getItemCode(),customDTO.getSize());
@@ -137,11 +136,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
             }
             inventoryRepo.updateByItemCodeAndSize(newQty, status, itemCode,size);
 
-
-            /*Delete order detail /////////////////*/
+            /*Delete order detail*/
             orderDetailRepo.deleteById(pk);
 
-            /*Delete order ////////////////////////*/
+            /*Delete order*/
             if (customDTO.getArrayLength() == 0){
                 orderRepo.deleteById(customDTO.getOrderId());
                 //System.out.println("Delete Order");

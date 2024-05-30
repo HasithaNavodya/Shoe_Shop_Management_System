@@ -8,4 +8,8 @@ import java.util.List;
 public interface EmployeeRepo extends JpaRepository<Employee,String> {
     Employee findTopByOrderByCodeDesc();
     List<Employee> findByNameStartingWith(String name);
+
+    boolean existsByEmail(String email);
+    Employee findByCode(String id);
+    Employee findByEmail(String email);
 }

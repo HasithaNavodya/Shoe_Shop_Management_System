@@ -6,16 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CustomerDTO {
 
+public class CustomerDTO implements Serializable {
     private String code;
     private String name;
     private String email;

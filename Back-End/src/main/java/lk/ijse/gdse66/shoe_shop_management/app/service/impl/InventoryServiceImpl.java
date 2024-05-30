@@ -1,4 +1,5 @@
 package lk.ijse.gdse66.shoe_shop_management.app.service.impl;
+
 import lk.ijse.gdse66.shoe_shop_management.app.dto.InventoryDTO;
 import lk.ijse.gdse66.shoe_shop_management.app.dto.SupplierDTO;
 import lk.ijse.gdse66.shoe_shop_management.app.entity.Inventory;
@@ -10,11 +11,11 @@ import lk.ijse.gdse66.shoe_shop_management.app.service.exception.NotFoundExcepti
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 public class InventoryServiceImpl implements InventoryService {
+
     @Autowired
     private ModelMapper mapper;
     @Autowired
@@ -74,6 +75,16 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public List<SupplierDTO> loadSupplierCode() {
-        return supplierRepo.findAll().stream().map(supplier -> mapper.map(supplier, SupplierDTO.class)).toList();
+        return supplierRepo.findAll().stream().map(supplier -> mapper.map(supplier,SupplierDTO.class)).toList();
+    }
+
+    @Override
+    public List<InventoryDTO> getAllItemsByPrice(double minPrice, double maxPrice) {
+        return inventoryRepo.findBySalePriceBetween(minPrice, maxPrice).stream().map(inventory -> mapper.map(inventory,InventoryDTO.class)).toList();
+    }
+
+    @Override
+    public List<InventoryDTO> getAllItemsByGender(String gender) {
+        return inventoryRepo.findByCategoryContaining(gender).stream().map(inventory -> mapper.map(inventory,InventoryDTO.class)).toList();
     }
 }

@@ -4,15 +4,14 @@ import jakarta.persistence.*;
 import lk.ijse.gdse66.shoe_shop_management.app.util.Gender;
 import lk.ijse.gdse66.shoe_shop_management.app.util.Role;
 import lombok.*;
-
 import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
+
 public class Employee {
     private String code;
     private String name;
@@ -32,7 +31,6 @@ public class Employee {
     private String guardianContact;
     @Id
     private Long id;
-
 
     public void setId(Long id) {
         this.id = id;

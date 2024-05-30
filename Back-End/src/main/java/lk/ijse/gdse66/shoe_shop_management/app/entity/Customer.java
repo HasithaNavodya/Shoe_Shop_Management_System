@@ -1,18 +1,16 @@
-package lk.ijse.gdse66.footflex.demo.entity;/*
-    this application is copyright protected
-    Author : kumara
-    Date : 4/30/2024
-*/
-import jakarta.persistence.*;
-import lk.ijse.gdse66.footflex.demo.util.CustomerLoyaltyLevel;
-import lk.ijse.gdse66.footflex.demo.util.Gender;
+package lk.ijse.gdse66.shoe_shop_management.app.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import lk.ijse.gdse66.shoe_shop_management.app.util.CustomerLoyaltyLevel;
+import lk.ijse.gdse66.shoe_shop_management.app.util.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.sql.Date;
 import java.sql.Timestamp;
-
 @Entity
 @Data
 @AllArgsConstructor

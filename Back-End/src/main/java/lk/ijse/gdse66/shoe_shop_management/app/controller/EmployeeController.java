@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,6 +20,7 @@ import java.util.List;
 @RequestMapping("api/v1/employee")
 @CrossOrigin(origins = "*")
 public class EmployeeController {
+
     @Autowired
     private EmployeeService employeeService;
 
@@ -28,18 +28,12 @@ public class EmployeeController {
         System.out.println("employee working !");
     }
 
-    @GetMapping("getAll")
-    private List<EmployeeDTO> getAllCustomers(){
-        List<EmployeeDTO> employeeDTOs = new ArrayList<>();
-        return employeeService.getAllEmployees();
-    }
-
     @GetMapping("/nextId")
     public String nextId(){
         return employeeService.generateNextId();
     }
 
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/save",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public EmployeeDTO save(@RequestParam("code") String code,
                             @RequestParam("name") String name,
                             @RequestParam("email") String email,
@@ -61,11 +55,9 @@ public class EmployeeController {
         Date newDate = dateFormat.parse(dob);
         Date newJoinDate = dateFormat.parse(joinDate);
 
-
         String image = Base64.getEncoder().encodeToString(proPic.getBytes());
         EmployeeDTO employeeDTO = new EmployeeDTO(code,name,image,gender,civilStatus,designation,role,newDate,newJoinDate,branch,
                 addressLine1, addressLine2,contact,email,guardianName,guardianContact);
-
         return employeeService.saveEmployee(employeeDTO);
     }
 
@@ -87,23 +79,36 @@ public class EmployeeController {
                                @RequestParam("dob") String dob,
                                @RequestParam("joinDate") String joinDate) throws IOException, ParseException {
 
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date newDate = dateFormat.parse(dob);
         Date newJoinDate = dateFormat.parse(joinDate);
 
-
         String image = Base64.getEncoder().encodeToString(proPic.getBytes());
         EmployeeDTO employeeDTO = new EmployeeDTO(code,name,image,gender,civilStatus,designation,role,newDate,newJoinDate,branch,
                 addressLine1, addressLine2,contact,email,guardianName,guardianContact);
-
         return employeeService.updateEmployee(employeeDTO);
     }
 
-    /*search employee*/
+    @DeleteMapping("/delete")
+    public boolean delete(@RequestParam("code") String code){
+        return employeeService.deleteEmployee(code);
+    }
+
+    @GetMapping("getAll")
+    private List<EmployeeDTO> getAllCustomers(){
+        List<EmployeeDTO> employeeDTOs = new ArrayList<>();
+        return employeeService.getAllEmployee();
+    }
+
     @GetMapping("/search")
     public List<EmployeeDTO> search(@RequestParam ("name") String name){
         return employeeService.searchEmployee(name);
     }
-}
 
+    @GetMapping("/searchByEmail")
+    public EmployeeDTO searchByEmail(@RequestParam("email")String email){
+        return employeeService.searchByEmail(email);
+    }
+
+
+}

@@ -1,28 +1,25 @@
-package lk.ijse.gdse66.footflex.demo.service;/*
-    this application is copyright protected
-    Author : kumara
-    Date : 5/19/2024
-*/
+package lk.ijse.gdse66.shoe_shop_management.app.service.impl;
 import jakarta.transaction.Transactional;
-import lk.ijse.gdse66.footflex.demo.dto.CustomerDTO;
-import lk.ijse.gdse66.footflex.demo.dto.InventoryDTO;
-import lk.ijse.gdse66.footflex.demo.dto.OrderDTO;
-import lk.ijse.gdse66.footflex.demo.dto.OrderDetailDTO;
-import lk.ijse.gdse66.footflex.demo.embedded.OrderDetailPK;
-import lk.ijse.gdse66.footflex.demo.entity.Customer;
-import lk.ijse.gdse66.footflex.demo.entity.Order;
-import lk.ijse.gdse66.footflex.demo.entity.OrderDetail;
-import lk.ijse.gdse66.footflex.demo.repository.CustomerRepo;
-import lk.ijse.gdse66.footflex.demo.repository.InventoryRepo;
-import lk.ijse.gdse66.footflex.demo.repository.OrderDetailRepo;
-import lk.ijse.gdse66.footflex.demo.repository.OrderRepo;
-import lk.ijse.gdse66.footflex.demo.service.exception.NotFoundException;
-import lk.ijse.gdse66.footflex.demo.util.CustomerLoyaltyLevel;
+
+import lk.ijse.gdse66.shoe_shop_management.app.dto.CustomerDTO;
+import lk.ijse.gdse66.shoe_shop_management.app.dto.InventoryDTO;
+import lk.ijse.gdse66.shoe_shop_management.app.dto.OrderDTO;
+import lk.ijse.gdse66.shoe_shop_management.app.dto.OrderDetailDTO;
+import lk.ijse.gdse66.shoe_shop_management.app.embedded.OrderDetailPK;
+import lk.ijse.gdse66.shoe_shop_management.app.entity.Customer;
+import lk.ijse.gdse66.shoe_shop_management.app.entity.Order;
+import lk.ijse.gdse66.shoe_shop_management.app.entity.OrderDetail;
+import lk.ijse.gdse66.shoe_shop_management.app.repository.CustomerRepo;
+import lk.ijse.gdse66.shoe_shop_management.app.repository.InventoryRepo;
+import lk.ijse.gdse66.shoe_shop_management.app.repository.OrderDetailRepo;
+import lk.ijse.gdse66.shoe_shop_management.app.repository.OrderRepo;
+import lk.ijse.gdse66.shoe_shop_management.app.service.PlaceOrderService;
+import lk.ijse.gdse66.shoe_shop_management.app.service.exception.NotFoundException;
+import lk.ijse.gdse66.shoe_shop_management.app.util.CustomerLoyaltyLevel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Transactional

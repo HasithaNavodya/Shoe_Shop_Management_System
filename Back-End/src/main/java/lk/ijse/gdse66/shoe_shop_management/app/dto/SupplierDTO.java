@@ -4,10 +4,10 @@ import lk.ijse.gdse66.shoe_shop_management.app.util.SupplierCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class SupplierDTO {
     private String code;
     private String name;

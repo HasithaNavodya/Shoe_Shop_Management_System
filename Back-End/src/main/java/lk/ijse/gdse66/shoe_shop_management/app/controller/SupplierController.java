@@ -4,13 +4,13 @@ import lk.ijse.gdse66.shoe_shop_management.app.dto.SupplierDTO;
 import lk.ijse.gdse66.shoe_shop_management.app.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/supplier")
 @CrossOrigin(origins = "*")
 public class SupplierController {
+
     @Autowired
     private SupplierService supplierService;
 
@@ -18,9 +18,13 @@ public class SupplierController {
         System.out.println("supplier working !");
     }
 
+    @GetMapping("/nextId")
+    public String nextId(){
+        return supplierService.generateNextId();
+    }
+
     @PostMapping("/save")
     public SupplierDTO save(@RequestBody SupplierDTO supplierDTO){
-        //System.out.println(supplierDTO);
         return supplierService.saveSupplier(supplierDTO);
     }
 
@@ -47,10 +51,5 @@ public class SupplierController {
     @GetMapping("/searchById")
     public SupplierDTO searchByID(@RequestParam("id")String code){
         return supplierService.searchSupplierById(code);
-    }
-
-    @GetMapping("/nextId")
-    public String nextId(){
-        return supplierService.generateNextId();
     }
 }

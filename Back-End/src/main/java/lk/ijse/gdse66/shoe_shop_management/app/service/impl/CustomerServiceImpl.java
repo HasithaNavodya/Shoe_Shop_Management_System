@@ -1,22 +1,19 @@
-package lk.ijse.gdse66.footflex.demo.service;/*
-    this application is copyright protected
-    Author : kumara
-    Date : 4/30/2024
-*/
+package lk.ijse.gdse66.shoe_shop_management.app.service.impl;
 
-import lk.ijse.gdse66.footflex.demo.dto.CustomerDTO;
-import lk.ijse.gdse66.footflex.demo.entity.Customer;
-import lk.ijse.gdse66.footflex.demo.repository.CustomerRepo;
-import lk.ijse.gdse66.footflex.demo.service.exception.DuplicateRecordException;
-import lk.ijse.gdse66.footflex.demo.service.exception.NotFoundException;
+import lk.ijse.gdse66.shoe_shop_management.app.dto.CustomerDTO;
+import lk.ijse.gdse66.shoe_shop_management.app.entity.Customer;
+import lk.ijse.gdse66.shoe_shop_management.app.repository.CustomerRepo;
+import lk.ijse.gdse66.shoe_shop_management.app.service.CustomerService;
+import lk.ijse.gdse66.shoe_shop_management.app.service.exception.DuplicateRecordException;
+import lk.ijse.gdse66.shoe_shop_management.app.service.exception.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
+
     @Autowired
     private CustomerRepo customerRepo;
 

@@ -1,27 +1,19 @@
 package lk.ijse.gdse66.shoe_shop_management.app.repository;
 
-
-
 import jakarta.transaction.Transactional;
 import lk.ijse.gdse66.shoe_shop_management.app.entity.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-
 import java.util.List;
 
 public interface InventoryRepo extends JpaRepository<Inventory,String> {
     List<Inventory> findByDescription(String name);
-
     Inventory findByCode(String id);
-
     List<Inventory> findBySalePriceBetween(double minPrice, double maxPrice);
-
     List<Inventory> findByCategoryContaining(String value);
-
     @Query("SELECT i.code FROM Inventory i")
     List<String> findAllItemCodes();
-
     @Transactional
     @Modifying
     @Query(value = "UPDATE Inventory " +

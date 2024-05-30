@@ -5,23 +5,18 @@ import lk.ijse.gdse66.shoe_shop_management.app.dto.SupplierDTO;
 import lk.ijse.gdse66.shoe_shop_management.app.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/inventory")
 @CrossOrigin(origins = "*")
 public class InventoryController {
+
     @Autowired
     private InventoryService inventoryService;
 
     public InventoryController() {
         System.out.println("Inventory working !");
-    }
-
-    @GetMapping("/getAll")
-    public List<InventoryDTO> getAllItem(){
-        return inventoryService.getAllItem();
     }
 
     @PostMapping("/save")
@@ -39,6 +34,11 @@ public class InventoryController {
         return inventoryService.deleteItem(code);
     }
 
+    @GetMapping("/getAll")
+    public List<InventoryDTO> getAllItem(){
+        return inventoryService.getAllItem();
+    }
+
     @GetMapping("/searchByName")
     public List<InventoryDTO> searchByName(@RequestParam("name")String name){
         return inventoryService.searchItemByName(name);
@@ -52,5 +52,22 @@ public class InventoryController {
     @GetMapping("/loadSuppliersCode")
     public List<SupplierDTO> loadSuppliersCode(){
         return inventoryService.loadSupplierCode();
+    }
+
+    @GetMapping("/getAllItemsByPrice/{minPrice}/{maxPrice}")
+    public List<InventoryDTO> getAllItemsByPrice(@PathVariable double minPrice,@PathVariable double maxPrice){
+        return inventoryService.getAllItemsByPrice(minPrice, maxPrice);
+    }
+
+    @GetMapping("/getAllItemsByCategoryGender")
+    public List<InventoryDTO> getAllItemsByGender(@RequestParam("gender") String gender){
+        System.out.println("gender = "+gender);
+        return inventoryService.getAllItemsByGender(gender);
+    }
+
+    @GetMapping("/getAllItemsByCategoryOccasion")
+    public List<InventoryDTO> getAllItemsByOccasion(@RequestParam("occasion") String occasion){
+        System.out.println("occasion = "+occasion);
+        return inventoryService.getAllItemsByGender(occasion);
     }
 }
